@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="theme-color" content="#1261c9">
+    <meta name="description" content="Kalkulator stock opname bahan minuman">
+
+    <title>Stock Opname Minuman</title>
+
+    <link rel="icon" href="./icon-512.png" type="image/png">
+
+    <link
+    rel="apple-touch-icon"
+    href="./icon-512.png"
+    >
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-icon">▤</div>
+
+            <h1>Stock Opname</h1>
+            <p>Minuman</p>
+
+            <div class="connection">
+                <span class="status-dot"></span>
+                <span id="statusOffline">Siap digunakan</span>
+            </div>
+        </header>
+
+
+        <!-- KALKULATOR -->
+        <section class="card">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Hitung Stok</h2>
+                    <p>Masukkan berat hasil timbangan</p>
+                </div>
+
+                <div class="section-icon">⚖</div>
+            </div>
+
+            <label for="bahan">Nama bahan</label>
+
+            <select id="bahan"></select>
+
+            <div class="info-box">
+
+                <div class="info-row">
+                    <span>Berat botol kosong</span>
+                    <strong id="botol">624 gram</strong>
+                </div>
+
+                <div class="info-row">
+                    <span>Faktor konversi</span>
+                    <strong id="konversi">1 ml = 1,285 gram</strong>
+                </div>
+
+            </div>
+
+            <label for="berat">Berat hasil timbangan</label>
+
+            <div class="input-wrapper">
+                <input
+                    type="number"
+                    id="berat"
+                    min="0"
+                    step="any"
+                    inputmode="decimal"
+                    placeholder="Contoh: 1000"
+                >
+
+                <span class="input-unit">gram</span>
+            </div>
+
+            <button id="hitung" class="button-primary">
+                Hitung Stok
+                <span>→</span>
+            </button>
+
+            <div id="hasil" class="result" aria-live="polite">
+
+                <p class="result-label">Sisa stok</p>
+
+                <h2>—</h2>
+
+                <p>Hasil akan muncul di sini</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- TAMBAH BAHAN -->
+        <details class="card add-section">
+
+            <summary>
+                <div class="summary-icon">＋</div>
+
+                <div class="summary-text">
+                    <strong>Tambah Bahan</strong>
+                    <span>Atur bahan dan faktor konversinya</span>
+                </div>
+
+                <span class="summary-arrow">⌄</span>
+            </summary>
+
+            <div class="form-content">
+
+                <label for="namaBahan">Nama bahan</label>
+
+                <input
+                    type="text"
+                    id="namaBahan"
+                    placeholder="Contoh: Fresh Milk"
+                >
+
+                <label for="beratBotol">
+                    Berat botol kosong
+                </label>
+
+                <div class="input-wrapper">
+                    <input
+                        type="number"
+                        id="beratBotol"
+                        min="0"
+                        step="any"
+                        inputmode="decimal"
+                        placeholder="Contoh: 30"
+                    >
+
+                    <span class="input-unit">gram</span>
+                </div>
+
+                <label for="gramPerMl">
+                    Faktor konversi
+                </label>
+
+                <div class="input-wrapper">
+                    <input
+                        type="number"
+                        id="gramPerMl"
+                        min="0"
+                        step="any"
+                        inputmode="decimal"
+                        placeholder="Contoh: 1.03"
+                    >
+
+                    <span class="input-unit">g/ml</span>
+                </div>
+
+                <p class="helper">
+                    Masukkan berat dalam gram untuk setiap 1 ml bahan.
+                </p>
+
+                <button id="tambahBahan" class="button-primary">
+                    Simpan Bahan
+                </button>
+
+            </div>
+
+        </details>
+
+
+        <!-- DAFTAR BAHAN -->
+        <section class="card">
+
+             <div class="section-heading">
+             <div>
+                 <h2>Daftar Bahan</h2>
+                 <p>Bahan yang tersimpan di perangkat</p>
+             </div>
+             </div>
+
+        <div id="daftarBahan"></div>
+
+</section>
+
+
+<!-- CADANGAN DATA -->
+<section class="card">
+
+    <div class="section-heading">
+        <div>
+            <h2>Cadangan Data</h2>
+            <p>Simpan atau pindahkan data bahan ke perangkat lain.</p>
+        </div>
+    </div>
+
+    <div class="cadangan-data">
+
+        <button type="button" id="eksporData">
+            Ekspor Data
+        </button>
+
+        <button type="button" id="pilihImpor">
+            Impor Data
+        </button>
+
+        <input
+            type="file"
+            id="fileImpor"
+            accept=".json,application/json"
+            hidden
+        >
+
+    </div>
+
+</section>
+
+        <footer>
+            <p>Stock Opname Minuman</p>
+            <span>Kalkulator stok pribadi</span>
+        </footer>
+
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

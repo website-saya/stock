@@ -1,0 +1,20 @@
+{
+  "id": "./",
+  "name": "Stock Opname Bahan Minuman",
+  "short_name": "Stock Opname",
+  "description": "Aplikasi penghitung stok bahan minuman berdasarkan berat dan faktor konversi.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f7fb",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
